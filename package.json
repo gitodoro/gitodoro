@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "node_modules/.bin/semistandard"
+    "lint": "node_modules/.bin/semistandard",
+    "dist": "node_modules/.bin/rollup ./rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "homepage": "https://github.com/gitodoro/gitodoro#readme",
   "devDependencies": {
     "semistandard": "^9.2.1"
+  },
+  "dependencies": {
+    "rollup": "^0.38.0"
   }
 }
