@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/gitodoro/gitodoro#readme",
   "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "rollup": "^0.38.0",
     "semistandard": "^9.2.1"
   },
-  "dependencies": {
-    "rollup": "^0.38.0"
-  }
+  "dependencies": {},
+  "pre-commit": [
+    "lint"
+  ]
 }
