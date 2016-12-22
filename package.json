@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "node_modules/.bin/semistandard",
-    "dist": "node_modules/.bin/rollup ./rollup.config.js"
+    "dist": "node_modules/.bin/rollup -c",
+    "distmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm run dist'",
+    "start": "node src/api/app.js",
+    "startmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm start'",
+    "debug:server": "node --inspect src/api/app.js --debug-brk"
   },
   "repository": {
     "type": "git",
@@ -20,11 +24,18 @@
   },
   "homepage": "https://github.com/gitodoro/gitodoro#readme",
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
     "rollup": "^0.38.0",
+    "rollup-plugin-commonjs": "^6.0.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
     "semistandard": "^9.2.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "env2": "^2.1.1",
+    "express": "^4.14.0",
+    "request": "^2.79.0"
+  },
   "pre-commit": [
     "lint"
   ]
