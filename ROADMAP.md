@@ -10,6 +10,7 @@
 
 ## Enchancements
 - Be able to log how much time has been spent in a "session" on an issue (ie. if 3 x 25 minute pomodoros completed against an issue, comment on that issues stating "Elapsed Time: 1 hour 15 minutes")
+- Be able to take a longer break after several pomodoro sessions as described in step 6 of 'how it works' in [the pomodoro technique](http://cirillocompany.de/pages/pomodoro-technique)
 - Autocomplete for: 
   1. organisations
   2. repos
