@@ -36,11 +36,17 @@ app.get('/welcome', (req, res) => {
     headers
   };
   request.post(options, (err, response, body) => {
-    if (err) console.log(err);
-    else {
-      const token = JSON.parse(body).access_token;
-      res.cookie('token', token, { maxAge: 900000, httpOnly: true }).redirect('/');
+    if (err) {
+      console.error(err);
+      return;
     }
+
+    const token = JSON.parse(body).access_token;
+    const cookieOpts = {
+      maxAge: 900000, // 15 mins
+      httpOnly: true
+    };
+    res.cookie('token', token, cookieOpts).redirect('/');
   });
 });
 
