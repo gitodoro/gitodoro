@@ -38,7 +38,7 @@ app.get('/welcome', (req, res) => {
   request.post(options, (err, response, body) => {
     if (err) console.log(err);
     else {
-      var token = JSON.parse(body).access_token;
+      const token = JSON.parse(body).access_token;
       res.cookie('token', token, { maxAge: 900000, httpOnly: true }).redirect('/');
     }
   });
