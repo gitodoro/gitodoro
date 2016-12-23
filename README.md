@@ -27,3 +27,10 @@ Track your work in segments of 25 minutes against a particular github issue.
 - Build the files: run `npm run dist`
 - Start the server: run `npm start`
 - server should be running on http://localhost:3000
+
+## Contributions
+
+We welcome your contributions with open arms, please see the [Roadmap](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md) to see where you can contribute. We also ask that you open an issue before starting on a PR to check that its not already being worked on.
+
+Thanks!
+
