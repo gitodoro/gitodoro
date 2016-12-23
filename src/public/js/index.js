@@ -3,12 +3,12 @@ import getTimeRemaining from './countdown';
 const initializeClock = (minutes) => {
   document.getElementById('start').style.display = 'none';
   document.getElementById('stop').style.display = 'block';
-  const endtime = Date.parse(new Date()) + (minutes * 60 * 1000); // number of miliseconds until countdown finishes
+  const endtime = Date.now() + (minutes * 60 * 1000); // number of miliseconds until countdown finishes
   const clock = document.getElementById('clockdiv');
-  const timeinterval = setInterval(function () {
+  const timeinterval = setInterval(() => {
     const t = getTimeRemaining(endtime);
-    const seconds = t.seconds.toString().length === 1 ? '0' + t.seconds : t.seconds;
-    const minutes = t.minutes.toString().length === 1 ? '0' + t.minutes : t.minutes;
+    const seconds = t.seconds < 10 ? '0' + t.seconds : t.seconds;
+    const minutes = t.minutes < 10 ? '0' + t.minutes : t.minutes;
     clock.innerHTML = minutes + ':' + seconds;
     if (t.total < 1000) {
       clearInterval(timeinterval);
