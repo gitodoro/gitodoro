@@ -8,7 +8,7 @@
     "lint": "node_modules/.bin/semistandard --env browser",
     "dist": "node_modules/.bin/rollup -c",
     "distmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm run dist'",
-    "start": "node src/api/app.js",
+    "start": "node src/api/start.js",
     "startmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm start'",
     "debug:server": "node --inspect src/api/app.js --debug-brk"
   },
