@@ -1,3 +1,4 @@
+const request = require('request');
 const express = require('express');
 const qs = require('querystring');
 const path = require('path');
@@ -12,9 +13,35 @@ app.get('/build/bundle.js', (req, res) => res.sendFile(path.resolve('build/bundl
 app.get('/login', (req, res) => {
   const params = {
     client_id: process.env.GITHUB_CLIENT_ID,
-    redirect_uri: process.env.BASE_URL + '/welcome'
+    redirect_uri: process.env.BASE_URL + '/welcome',
+    scope: 'user repo read:org'
   };
   res.redirect('https://github.com/login/oauth/authorize?' + qs.stringify(params));
+});
+
+app.get('/welcome', (req, res) => {
+  const payload = {
+    client_id: process.env.GITHUB_CLIENT_ID, // given to you when you register your app with github
+    client_secret: process.env.GITHUB_CLIENT_SECRET, // given to you when you register your app with github
+    code: req.query.code // temporary code from github in query of redirect
+  };
+  const url = 'https://github.com/login/oauth/access_token';
+  const headers = {
+    Accept: 'application/json',
+    'User-Agent': 'Gitodoro'
+  };
+  const options = {
+    url,
+    form: payload,
+    headers
+  };
+  request.post(options, (err, response, body) => {
+    if (err) console.log(err);
+    else {
+      const token = JSON.parse(body).access_token;
+      res.cookie('token', token, { maxAge: 900000, httpOnly: true }).redirect('/');
+    }
+  });
 });
 
 app.listen(3000, () => console.log('Server running on http://localhost:3000'));
