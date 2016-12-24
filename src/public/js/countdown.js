@@ -1,4 +1,3 @@
-
 const countdownTimer = (deadline) => {
   const total = deadline - Date.now();
   const seconds = Math.round((total / 1000) % 60);
