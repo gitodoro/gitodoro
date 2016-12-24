@@ -1,1 +1,3 @@
-export default () => `<h1>Error</h1>`;
+export default () => {
+  document.querySelector('#app').innerHTML = `<h1>Error</h1>`;
+}
