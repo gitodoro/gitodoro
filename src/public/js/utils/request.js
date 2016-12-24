@@ -3,8 +3,11 @@ const request = (method, url, payload, resolve) => {
   const payloadString = JSON.stringify(payload);
 
   xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      resolve(JSON.parse(xhr.responseText));
+    if (xhr.readyState === 4) {
+      resolve({
+        response: JSON.parse(xhr.responseText),
+        status: xhr.status
+      });
     }
   };
   xhr.open(method, url);

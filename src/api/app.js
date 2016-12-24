@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const githubOauth = require('./githubOauth.js');
+const orgs = require('./orgs.js');
 
 const app = express();
 
@@ -13,7 +14,9 @@ app.get('/build/bundle.js', (req, res) => {
 
 app.use(express.static('src/public'));
 
-app.use('/login', githubOauth.login);
-app.use('/welcome', githubOauth.welcome);
+app.get('/login', githubOauth.login);
+app.get('/welcome', githubOauth.welcome);
+
+app.get('/orgs', orgs);
 
 module.exports = app;
