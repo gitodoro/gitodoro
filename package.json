@@ -10,7 +10,9 @@
     "distmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm run dist'",
     "start": "node src/api/start.js",
     "startmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm start'",
-    "debug:server": "node --inspect src/api/app.js --debug-brk"
+    "debug:server": "node --inspect src/api/app.js --debug-brk",
+    "sass": "sass src/public/styles/base.scss:build/main.css",
+    "sass:watch": "sass --watch src/public/styles/base.scss:build/main.css"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,7 @@
     "semistandard": "^9.2.1"
   },
   "dependencies": {
+    "bulma": "^0.2.3",
     "env2": "^2.1.1",
     "express": "^4.14.0",
     "request": "^2.79.0"
