@@ -1,6 +1,7 @@
 node_modules
 !node_modules/app
 config.env
-build
+build/*
+!build/index.html
 npm-debug.log
 .sass-cache
