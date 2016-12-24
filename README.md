@@ -1,6 +1,8 @@
 # gitodoro
 
-[![Join the chat at https://gitter.im/gitodoro/gitodoro](https://badges.gitter.im/gitodoro/gitodoro.svg)](https://gitter.im/gitodoro/gitodoro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/gitodoro/gitodoro](https://img.shields.io/badge/chat-on_gitter-1dce73.svg?style=flat-square)](https://gitter.im/gitodoro/gitodoro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md)
+
 
 ## What?
 
