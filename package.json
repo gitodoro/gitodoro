@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "node_modules/.bin/semistandard --env browser",
-    "dist": "node_modules/.bin/rollup -c",
+    "build": "node_modules/.bin/rollup -c",
+    "dist": "npm run build && npm run sass",
     "distmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm run dist'",
     "start": "node src/api/start.js",
     "startmon": "nodemon -e html,js,json,css -w node_modules/app -w src -x 'npm start'",
