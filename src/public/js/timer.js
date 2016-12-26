@@ -4,20 +4,24 @@ export default (orgs) => {
   document.querySelector('#app').innerHTML = `
     <div>
 
-      <div id="clockdiv"></div>
-      <button id="start"> Start Timer </button>
-      <button id="stop" style="display:none"> Stop Timer </button>
+      <div>
+        <div id="clockdiv"></div>
+        <button id="start"> Start Timer </button>
+        <button id="stop" style="display:none"> Stop Timer </button>
+      </div>
 
       <h4>Organisations</h4>
-      ${
-        orgs.map((org) => {
-          return `
-            <p>${org.id}</p>
-            <p>${org.name}</p>
-            <p>${org.image}</p>
-          `;
-        }).join('')
-      }
+      <div class="columns organisations">
+        ${
+          orgs.map((org) => {
+            return `
+              <div id="${org.id}" class="column organisation">
+                <img src="${org.image}"><span>${org.name}</span>
+              </div>
+            `;
+          }).join('')
+        }
+      </div>
     </div>`;
 
   const initializeClock = (minutes) => {
