@@ -5,3 +5,4 @@ build/*
 !build/index.html
 npm-debug.log
 .sass-cache
+coverage
