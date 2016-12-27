@@ -1,9 +1,7 @@
 const request = require('request');
-const qs = require('querystring');
 
 const orgs = (req, res) => {
-  const { cookie } = req.headers;
-  const { token } = qs.parse(cookie);
+  const { token } = req;
 
   const options = {
     url: 'https://api.github.com/user/orgs',
@@ -20,15 +18,6 @@ const orgs = (req, res) => {
 
       return res.status(500).send({
         message: 'Error: ' + err,
-        payload: {}
-      });
-    }
-
-    if (!token) {
-      console.log('Token undefined');
-
-      return res.status(401).send({
-        message: 'No valid cookie present',
         payload: {}
       });
     }
