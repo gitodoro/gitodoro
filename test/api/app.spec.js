@@ -1,7 +1,7 @@
-import { assert } from 'chai';
-import shot from 'shot';
+const { assert } = require('chai');
+const shot = require('shot');
 
-import app from '../../src/api/app.js';
+const app = require('../../src/api/app.js');
 
 describe('Express server', () => {
   it('/ - should respond with a 200 and an html page', () => {
