@@ -1,6 +1,7 @@
 {
   "extends": "semistandard",
   "env": {
-    "browser": 1
+    "browser": 1,
+    "mocha": 1
   }
 }
