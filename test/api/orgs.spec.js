@@ -3,15 +3,14 @@ const shot = require('shot');
 
 const app = require('../../src/api/app.js');
 
-describe('"/" endpoint: "', () => {
-  it('should respond with a 200 and an html page', (done) => {
+describe('"/orgs" endpoint: "', () => {
+  it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     const request = {
       method: 'GET',
-      url: '/'
+      url: '/orgs'
     };
     shot.inject(app, request, (res) => {
-      assert.equal(res.statusCode, 200);
-      assert.include(res.headers['content-type'], 'text/html');
+      assert.equal(res.statusCode, 401);
       done();
     });
   });
