@@ -47,7 +47,6 @@ describe('"/orgs" endpoint: "', () => {
 
     shot.inject(app, request, (res) => {
       assert.equal(res.statusCode, 200);
-      // assert.equal(res.payload, 200);
       done();
     });
   });
