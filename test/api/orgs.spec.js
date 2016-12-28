@@ -19,7 +19,10 @@ describe('"/orgs" endpoint: "', () => {
   it('should respond with a 503 Service Unavailable if there is an error from github request', (done) => {
     const request = {
       method: 'GET',
-      url: '/orgs'
+      url: '/orgs',
+      headers: {
+        cookie: 'token=accesstoken1234'
+      }
     };
     nock('https://api.github.com')
       .get('/user/orgs')

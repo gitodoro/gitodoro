@@ -46,6 +46,7 @@
     "bulma": "^0.2.3",
     "env2": "^2.1.1",
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "request": "^2.79.0"
   },
   "pre-commit": [
