@@ -6,3 +6,4 @@ build/*
 npm-debug.log
 .sass-cache
 coverage
+.coveralls.yml

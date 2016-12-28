@@ -1,5 +1,5 @@
 ## MVP Functionality
-- [ ] Be able to login via Github oAuth 
+- [x] Be able to login via Github oAuth 
 - [ ] Be able to select one of your organisations
 - [ ] Be able to select a repo from that organisation
 - [ ] Be able to select an issue from that repo
