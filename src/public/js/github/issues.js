@@ -7,14 +7,14 @@ export default (issues) => {
   document.querySelector('#app').innerHTML = `
     <div>
       <button id="backToOrgs">Back To Organisations</button>
-      <button id="backToRepo">Back To Repos</button>
+      <button id="backToRepos">Back To Repos</button>
       <h4>Issues</h4>
 
       <div class="columns issues">
         ${
           issues.map((issue) => {
             return `
-              <div id="${issue_id}" name="issue" class="column issue">
+              <div id="${issue.id}" name="issue" class="column issue">
                 <span>${issue.name}</span>
               </div>
             `;

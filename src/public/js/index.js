@@ -12,7 +12,7 @@ const endpointMap = {
   timer: '/timer'
 };
 
-const view = localStorage.getItem('view');
+const view = localStorage.getItem('view') || 'orgs';
 
 request.get(endpointMap[view] || '/orgs')
   .then((res) => {
