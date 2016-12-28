@@ -3,7 +3,7 @@
 [![Dependencies](https://david-dm.org/gitodoro/gitodoro.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro)
 [![Dev Dependencies](https://david-dm.org/gitodoro/gitodoro/dev-status.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro?type=dev)
 [![Travis](https://img.shields.io/travis/gitodoro/gitodoro.svg?style=flat-square)](https://travis-ci.org/dwyl/goodparts)
-[![Coverage Status](https://coveralls.io/repos/github/gitodoro/gitodoro/badge.svg?branch=test)](https://coveralls.io/github/gitodoro/gitodoro?branch=test)
+[![Coverage Status](https://coveralls.io/repos/github/gitodoro/gitodoro/badge.svg?style=flat-square&branch=master)](https://coveralls.io/github/gitodoro/gitodoro?branch=master)
 
 # gitodoro
 
