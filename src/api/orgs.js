@@ -2,7 +2,6 @@ const request = require('request');
 
 const orgs = (req, res) => {
   const { token } = req;
-
   const options = {
     url: 'https://api.github.com/user/orgs',
     headers: {

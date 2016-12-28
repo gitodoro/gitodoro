@@ -7,8 +7,8 @@ const authCheck = (req, res, next) => {
     message: 'No valid cookie present',
     payload: {}
   };
-  !token ? res.status(401).send(errorResponse) : req.token = token;
-  next();
+  req.token = token;
+  !token ? res.status(401).json(errorResponse) : next();
 };
 
 module.exports = authCheck;
