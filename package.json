@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node_modules/.bin/mocha ./test/runner.js",
     "cover": "istanbul cover _mocha -- ./test/**/*.spec.js",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "node_modules/.bin/semistandard --env browser mocha",
     "build": "node_modules/.bin/rollup -c",
     "dist": "npm run build && npm run sass",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/gitodoro/gitodoro#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.15",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^3.2.0",
     "nock": "^9.0.2",

@@ -3,6 +3,7 @@
 [![Dependencies](https://david-dm.org/gitodoro/gitodoro.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro)
 [![Dev Dependencies](https://david-dm.org/gitodoro/gitodoro/dev-status.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro?type=dev)
 [![Travis](https://img.shields.io/travis/gitodoro/gitodoro.svg?style=flat-square)](https://travis-ci.org/dwyl/goodparts)
+[![Coverage Status](https://coveralls.io/repos/github/gitodoro/gitodoro/badge.svg?branch=test)](https://coveralls.io/github/gitodoro/gitodoro?branch=test)
 
 # gitodoro
 
@@ -12,7 +13,7 @@ A pomodoro timer that links to your github account.
 
 ## Why?
 
-Helping you being a more *efficient* you. 
+Helping you being a more *efficient* you.
 
 ## How?
 
@@ -27,7 +28,7 @@ Track your work in segments of 25 minutes against a particular github issue.
   - GITHUB_CLIENT_ID
   - GITHUB_CLIENT_SECRET
   - BASE_URL
-  
+
 - Build the files: run `npm run dist`
 - Start the server: run `npm start`
 - server should be running on http://localhost:3000
@@ -37,4 +38,3 @@ Track your work in segments of 25 minutes against a particular github issue.
 We welcome your contributions with open arms, please see the [Roadmap](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md) to see where you can contribute. We also ask that you open an issue before starting on a PR to check that its not already being worked on.
 
 Thanks!
-
