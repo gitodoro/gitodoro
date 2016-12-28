@@ -16,9 +16,7 @@ const orgs = (req, res) => {
 
   request.get(options, (err, response, body) => {
     if (err) {
-      console.error(err);
-
-      return res.status(500).send({
+      return res.status(503).send({
         message: 'Error: ' + err,
         payload: {}
       });
