@@ -2,6 +2,7 @@ import request from '../utils/request.js';
 import timer from '../timer/timer.js';
 import repos from './repos.js';
 import orgs from './orgs.js';
+import login from '../login.js';
 
 export default (issues) => {
   document.querySelector('#app').innerHTML = `
@@ -56,7 +57,8 @@ export default (issues) => {
   });
 
   document.querySelector('#backToRepos').addEventListener('click', () => {
-    request.get('/repos')
+    const orgName = JSON.parse(localStorage.getItem('org')).name;
+    request.get('/repos/' + orgName)
       .then((res) => {
         if (res.status !== 200) {
           return login();

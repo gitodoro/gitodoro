@@ -4,6 +4,8 @@ import issues from './issues.js';
 import login from '../login.js';
 
 export default (repos) => {
+  const { image, name } = JSON.parse(localStorage.getItem('org'));
+  const org_name = name;
   document.querySelector('#app').innerHTML = `
     <div>
       <button id="backToOrgs">Back To Organisations</button>
@@ -12,8 +14,8 @@ export default (repos) => {
         ${
           repos.map((repo) => {
             return `
-              <div id="${repo.id}" name="repo" class="column repository">
-                <img src="${repo.img}"><span>${repo.name}</span>
+              <div id="${repo.name}" name="repo" class="column repository">
+                <img src="${image}"><span>${repo.name}</span>
               </div>
             `;
           }).join('')
@@ -25,16 +27,16 @@ export default (repos) => {
   const repoNodes = document.querySelectorAll('div[name=repo]');
   [].forEach.call(repoNodes, (repo, i) => {
     repo.addEventListener('click', () => {
-      const repoId = repoNodes[i].id;
-      request.get(`/repos/${repoId}`)
+      const repo_name = repoNodes[i].id;
+      request.get(`/issues/${org_name}/${repo_name}`)
         .then((res) => {
           if (res.status !== 200) {
             return login();
           }
 
-          localStorage.setItem('repo', repoId);
+          localStorage.setItem('repo', JSON.stringify({ name: repo_name }));
           localStorage.setItem('view', 'issues');
-          issues(res.response.payload.issues);
+          issues(res.response.payload);
         });
     });
   });
