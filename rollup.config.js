@@ -4,6 +4,8 @@ export default {
   dest: 'build/bundle.js',
   format: 'iife',
   moduleName: 'HiSayer',
+  sourceMap: true,
+  sourceMapFile: 'bundle/bundle.js',
   plugins: [nodeResolve({
     jsnext: true,
     main: true,

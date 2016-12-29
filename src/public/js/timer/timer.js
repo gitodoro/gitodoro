@@ -1,27 +1,13 @@
 import getTimeRemaining from './countdown.js';
 
-export default (orgs) => {
+export default () => {
   document.querySelector('#app').innerHTML = `
     <div>
 
-      <div>
-        <div id="clockdiv"></div>
-        <button id="start"> Start Timer </button>
-        <button id="stop" style="display:none"> Stop Timer </button>
-      </div>
+      <div id="clockdiv"></div>
+      <button id="start"> Start Timer </button>
+      <button id="stop" style="display:none"> Stop Timer </button>
 
-      <h4>Organisations</h4>
-      <div class="columns organisations">
-        ${
-          orgs.map((org) => {
-            return `
-              <div id="${org.id}" class="column organisation">
-                <img src="${org.image}"><span>${org.name}</span>
-              </div>
-            `;
-          }).join('')
-        }
-      </div>
     </div>`;
 
   const initializeClock = (minutes) => {
