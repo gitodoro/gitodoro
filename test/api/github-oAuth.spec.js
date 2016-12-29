@@ -4,46 +4,32 @@ const nock = require('nock');
 
 const app = require('../../src/api/app.js');
 
+const loginTests = [
+  'should respond with a 302 redirect to github',
+  '302 redirect uri should include the correct client_id with the GITHUB_CLIENT_ID env variable',
+  '302 redirect uri should include the correct redirect_uri with the BASE_URL env variable',
+  '302 redirect uri should include the correct scopes'
+];
+
+const loginLocations = [
+  '/github.com/login/oauth/authorize',
+  'client_id=' + process.env.GITHUB_CLIENT_ID,
+  'redirect_uri=' + process.env.BASE_URL + '/welcome',
+  'scope=user repo read:org'
+];
+
 describe('github-oauth', () => {
   context('"/login" endpoint: ', () => {
-    it('should respond with a 302 redirect to github', (done) => {
-      request(app)
-        .get('/login')
-        .expect(302)
-        .end((err, res) => {
-          expect(res.header.location).to.include('/github.com/login/oauth/authorize');
-          done();
-        });
-    });
-
-    it('302 redirect uri should include the correct client_id with the GITHUB_CLIENT_ID env variable', (done) => {
-      request(app)
-        .get('/login')
-        .expect(302)
-        .end((err, res) => {
-          expect(res.header.location).to.include('client_id=' + process.env.GITHUB_CLIENT_ID);
-          done();
-        });
-    });
-
-    it('302 redirect uri should include the correct redirect_uri with the BASE_URL env variable', (done) => {
-      request(app)
-        .get('/login')
-        .expect(302)
-        .end((err, res) => {
-          expect(decodeURIComponent(res.header.location)).to.include('redirect_uri=' + process.env.BASE_URL + '/welcome');
-          done();
-        });
-    });
-
-    it('302 redirect uri should include the correct scopes', (done) => {
-      request(app)
-        .get('/login')
-        .expect(302)
-        .end((err, res) => {
-          expect(decodeURIComponent(res.headers.location)).to.include('scope=user repo read:org');
-          done();
-        });
+    loginTests.forEach((test, i) => {
+      it(test, (done) => {
+        request(app)
+          .get('/login')
+          .expect(302)
+          .end((err, res) => {
+            expect(decodeURIComponent(res.header.location)).to.include(loginLocations[i]);
+            done();
+          });
+      });
     });
   });
 
