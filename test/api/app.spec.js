@@ -9,6 +9,15 @@ describe('"/" endpoint: ', () => {
       .get('/')
       .expect('content-type', /text\/html/)
       .expect(200)
-      .expect(/DOCTYPE/, done);
+      .end((err, res) => {
+        [
+          'Gitodoro',
+          'DOCTYPE',
+          '<div id="app"></div>',
+          '<script src="/bundle.js"'
+        ].forEach((str) => expect(res.text).to.include(str));
+
+        done();
+      });
   });
 });

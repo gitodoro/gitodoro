@@ -12,6 +12,7 @@ describe('"/orgs" endpoint: ', () => {
       .get('/orgs')
       .expect(401, done)
   });
+
   it('should respond with a 503 Service Unavailable if there is an error from github request', (done) => {
     nock('https://api.github.com')
       .get('/user/orgs')
@@ -22,6 +23,7 @@ describe('"/orgs" endpoint: ', () => {
       .set('cookie', 'token=accesstoken1234')
       .expect(503, done);
   });
+
   it('should respond with a 200 and a payload of: array of organisations (objects)', (done) => {
     nock('https://api.github.com')
       .get('/user/orgs')

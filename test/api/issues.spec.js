@@ -4,6 +4,7 @@ const nock = require('nock');
 
 const app = require('../../src/api/app.js');
 const issuesResponse = require('../fixtures/issues.js');
+const issuesPayload = require('../fixtures/issues_payload.js');
 
 describe('"/issues/:org_name/:repo_name" endpoint: ', () => {
   const testOrg = 'testOrg';
@@ -34,7 +35,14 @@ describe('"/issues/:org_name/:repo_name" endpoint: ', () => {
     request(app)
       .get('/issues/' + testOrg + '/' + testRepo)
       .set('cookie', 'token=accesstoken1234')
-      .expect(200, done);
+      .expect(200)
+      .end((err, res) => {
+        expect(res.body).to.eql({
+          message: 'Retrieving issues for repo: testRepo',
+          payload: issuesPayload
+        });
+        done();
+      });
   });
 });
 
