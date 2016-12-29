@@ -20,10 +20,20 @@ const issues = (req, res) => {
     }
 
     const payload = JSON.parse(body)
+      .filter((issue) => issue.state === 'open')
       .map((issue) => ({
         id: issue.id,
-        name: issue.name,
-        number: issues.number
+        name: issue.title,
+        description: issue.body,
+        number: issue.number,
+        labels: issue.labels.map((label) => ({
+          name: label.name,
+          color: label.color
+        })),
+        assignees: issue.assignees.map((assignee) => ({
+          name: assignee.login,
+          image: assignee.avatar_url
+        }))
       }));
 
     const data = {
