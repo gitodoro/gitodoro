@@ -19,11 +19,14 @@ const orgs = (req, res) => {
       });
     }
 
-    res.send(JSON.parse(body).map((org) => ({
-      id: org.id,
-      name: org.login,
-      image: org.avatar_url
-    })));
+    res.send({
+      message: 'Retrieving organisations',
+      payload: JSON.parse(body).map((org) => ({
+        id: org.id,
+        name: org.login,
+        image: org.avatar_url
+      }))
+    });
   });
 };
 
