@@ -13,12 +13,11 @@ const repos = (req, res) => {
 
   request.get(options, (err, response, body) => {
     if (err) {
-      return res.status(500).send({
+      return res.status(503).send({
         message: 'Error: ' + err,
         payload: {}
       });
     }
-
     const payload = JSON.parse(body).map((repo) => ({
       name: repo.name,
       open_issues_count: repo.open_issues_count,
