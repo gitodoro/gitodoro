@@ -48,7 +48,6 @@ describe('"/repos/:org_name" endpoint: "', () => {
       .reply(200, reposResponse);
 
     shot.inject(app, request, (res) => {
-      // console.log(res);
       assert.equal(res.statusCode, 200);
       done();
     });
