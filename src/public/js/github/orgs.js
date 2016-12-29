@@ -10,8 +10,8 @@ export default (orgs) => {
         ${
           orgs.map((org) => {
             return `
-              <div id="${org.id}" name="org" class="column organisation">
-                <img src="${org.image}"><span>${org.name}</span>
+             <div id="${org.name}" name="org" class="column organisation">
+                <img id="${org.image}" src="${org.image}"><span>${org.name}</span>
               </div>
             `;
           }).join('')
@@ -22,14 +22,15 @@ export default (orgs) => {
   const orgNodes = document.querySelectorAll('div[name=org]');
   [].forEach.call(orgNodes, (org, i) => {
     org.addEventListener('click', () => {
-      const orgId = orgNodes[i].id;
-      request.get(`/orgs/${orgId}`)
+      const org_name = orgNodes[i].id;
+      const org_image = document.querySelectorAll('div[name=org] img').id;
+      request.get(`/repos/${org_name}`)
         .then((res) => {
           if (res.status !== 200) {
             return login();
           }
 
-          localStorage.setItem('org', orgId);
+          localStorage.setItem('org', JSON.stringify({ name: org_name, image: org_image }));
           localStorage.setItem('view', 'repos');
           repos(res.response.payload);
         });
