@@ -48,6 +48,7 @@
     "env2": "^2.1.1",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
+    "ramda": "^0.23.0",
     "request": "^2.79.0"
   },
   "pre-commit": [
