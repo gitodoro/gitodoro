@@ -4,6 +4,7 @@ require('env2')('config.env');
 const githubOauth = require('./githubOauth.js');
 const orgs = require('./orgs.js');
 const repos = require('./repos.js');
+const issues = require('./issues.js');
 const authCheck = require('./auth-check.js');
 const morgan = require('morgan');
 
@@ -17,5 +18,6 @@ app.get('/login', githubOauth.login);
 app.get('/welcome', githubOauth.welcome);
 app.get('/orgs', [authCheck, orgs]);
 app.get('/repos/:org_name', [authCheck, repos]);
+app.get('/issues/:org_name/:repo_name', [authCheck, issues]);
 
 module.exports = app;
