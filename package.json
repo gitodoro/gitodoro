@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha ./test/runner.js",
-    "cover": "istanbul cover _mocha -- ./test/**/*.spec.js",
+    "cover": "istanbul cover _mocha -- ./test/runner.js",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "node_modules/.bin/semistandard --env browser mocha",
     "build": "node_modules/.bin/rollup -c",
