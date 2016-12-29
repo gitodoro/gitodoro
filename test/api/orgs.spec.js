@@ -1,11 +1,10 @@
-const { assert } = require('chai');
 const request = require('supertest');
 const nock = require('nock');
 
 const app = require('../../src/api/app.js');
 const organisationsResponse = require('../fixtures/organisations.js');
 
-describe('"/orgs" endpoint: "', () => {
+describe('"/orgs" endpoint: ', () => {
   it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     request(app)
       .get('/orgs')

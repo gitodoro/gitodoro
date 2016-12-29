@@ -7,6 +7,7 @@ const reposResponse = require('../fixtures/repos.js');
 
 describe('"/repos/:org_name" endpoint: "', () => {
   const testOrg = 'testOrg';
+
   it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     request(app)
       .get('/repos/' + testOrg)
