@@ -1,12 +1,12 @@
 module.exports = (config) => {
   config.set({
-    basePath: '../..',
+    basePath: '',
     frameworks: [ 'mocha', 'chai', 'fixture', 'sinon' ],
     files: [
+      'build/bundle_init.js',
       'build/request.js',
-      'build/bundle.js',
-      'test/client/**/*.spec.js',
-      'build/index.html'
+      'build/index.html',
+      'test/client/**/*.spec.js'
     ],
     preprocessors: {
       'build/*.html': [ 'html2js' ]
@@ -14,7 +14,8 @@ module.exports = (config) => {
     reporters: [ 'mocha' ],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
+    // logLevel: config.LOG_INFO,
     autoWatch: false,
     browsers: [ process.env.TRAVIS ? 'Chrome_travis_ci' : 'Chrome' ],
     singleRun: true,

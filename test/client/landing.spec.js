@@ -2,12 +2,13 @@ describe('landing pages', () => {
   context('no cookie', () => {
     context('no localStorage', () => {
       beforeEach(() => {
-        fixture.base = '../../bundle';
+        fixture.base = 'build';
         fixture.load('index.html');
+        init();
       });
 
       before(() => {
-        sinon.stub(request, 'get', (url, payload) => {
+        sinon.stub(request, 'get', (url) => {
           return Promise.resolve({ status: 401 });
         });
 
@@ -16,9 +17,12 @@ describe('landing pages', () => {
         });
       });
 
-      it('should display the login button', () => {
-        expect(document.querySelector('#app > form > button').innerHTML)
-          .to.eql('Login To Github');
+      it('should display the login button', (done) => {
+        setTimeout(() => {
+          expect(document.querySelector('#app').innerHTML)
+            .to.eql('Login To Github');
+          done();
+        }, 100);
       });
     });
   });
