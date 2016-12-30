@@ -4,6 +4,7 @@ config.env
 build/*
 !build/script.js
 !build/index.html
+!build/request.js
 npm-debug.log
 .sass-cache
 coverage
