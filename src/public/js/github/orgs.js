@@ -1,4 +1,3 @@
-import request from '../utils/request.js';
 import login from '../login.js';
 import repos from './repos.js';
 

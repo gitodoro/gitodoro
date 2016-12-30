@@ -1,4 +1,3 @@
-import request from '../utils/request.js';
 import timer from '../timer/timer.js';
 import repos from './repos.js';
 import orgs from './orgs.js';

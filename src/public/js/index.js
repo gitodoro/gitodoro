@@ -1,5 +1,3 @@
-import request from './utils/request.js';
-
 import timer from './timer/timer.js';
 import github from './github/github.js';
 import login from './login.js';
