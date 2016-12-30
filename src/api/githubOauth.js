@@ -33,8 +33,10 @@ const githubOauth = {
     };
     request.post(options, (err, response, body) => {
       if (err) {
-        res.status(503).send({ message: 'server error', payload: {} });
-        return;
+        return res.send({
+          message: '' + err,
+          payload: {}
+        });
       }
 
       const token = JSON.parse(body).access_token;
