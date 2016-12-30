@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const request = require('supertest');
 const nock = require('nock');
 
-const app = require('../../src/api/app.js');
+const app = require('../../../src/api/app.js');
 
 const loginTests = [
   'should respond with a 302 redirect to github',
