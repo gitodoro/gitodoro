@@ -20,7 +20,6 @@ const issues = (req, res) => {
     }
 
     const payload = JSON.parse(body)
-      .filter((issue) => issue.state === 'open')
       .map((issue) => ({
         id: issue.id,
         name: issue.title,
