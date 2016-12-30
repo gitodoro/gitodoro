@@ -8,7 +8,7 @@
     "test:client": "build/script.js && node_modules/.bin/karma start test/client/karma.conf.js",
     "test": "npm run test:api && npm run test:client",
     "testmon": "nodemon -w test -w src -x 'npm test'",
-    "cover": "istanbul cover _mocha -- ./test/runner.js",
+    "cover": "istanbul cover _mocha -- ./test/api/runner.js",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "node_modules/.bin/semistandard --env browser mocha",
     "build": "node_modules/.bin/rollup -c",
