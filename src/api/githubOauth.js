@@ -33,7 +33,7 @@ const githubOauth = {
     };
     request.post(options, (err, response, body) => {
       if (err) {
-        console.error(err);
+        res.status(503).send({ message: 'server error', payload: {} });
         return;
       }
 
