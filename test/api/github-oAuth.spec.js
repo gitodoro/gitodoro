@@ -34,6 +34,21 @@ describe('github-oauth', () => {
   });
 
   context('"/welcome" endpoint: ', () => {
+    it('should respond with an error if there is an error from the request to Github', (done) => {
+      const url = 'https://github.com';
+      nock(url)
+        .post('/login/oauth/access_token')
+        .replyWithError('something awful happened');
+
+      request(app)
+        .get('/welcome')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body.message).to.equal('Error: something awful happened');
+          done();
+        });
+    });
+
     it('should respond with a 302 and set an httpOnly cookie of 1234access_token', (done) => {
       const url = 'https://github.com';
       const body = JSON.stringify({access_token: '1234access_token'});
