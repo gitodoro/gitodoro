@@ -1,13 +1,11 @@
 describe('landing pages', () => {
   context('no cookie', () => {
     context('no localStorage', () => {
-      beforeEach(() => {
+      before(() => {
         fixture.base = 'build';
         fixture.load('index.html');
         init();
-      });
 
-      before(() => {
         sinon.stub(request, 'get', (url) => {
           return Promise.resolve({ status: 401 });
         });
@@ -19,10 +17,10 @@ describe('landing pages', () => {
 
       it('should display the login button', (done) => {
         setTimeout(() => {
-          expect(document.querySelector('#app').innerHTML)
+          expect(document.querySelector('#app > form > button').innerHTML)
             .to.eql('Login To Github');
           done();
-        }, 100);
+        }, 10);
       });
     });
   });
