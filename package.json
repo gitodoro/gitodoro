@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:api": "node_modules/.bin/mocha ./test/api/runner.js",
-    "test:client": "build/script.js && node_modules/.bin/karma start test/client/karma.conf.js",
+    "test:client": "node build/script.js && node_modules/.bin/karma start test/client/karma.conf.js",
     "test": "npm run test:api && npm run test:client",
     "testmon": "nodemon -w test -w src -x 'npm test'",
     "cover": "istanbul cover _mocha -- ./test/api/runner.js",
