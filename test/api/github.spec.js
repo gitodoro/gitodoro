@@ -48,11 +48,14 @@ describe('github endpoints', () => {
         .set('cookie', 'token=accesstoken1234')
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.eql(repeat({
-            id: 1,
-            image: 'https://github.com/images/error/octocat_happy.gif',
-            name: 'github'
-          }, 3));
+          expect(res.body).to.eql({
+            message: 'Retrieving organisations',
+            payload: repeat({
+              id: 1,
+              image: 'https://github.com/images/error/octocat_happy.gif',
+              name: 'github'
+            }, 3)
+          });
           done();
         });
     });

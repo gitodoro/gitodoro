@@ -23,7 +23,7 @@ export default (orgs) => {
   [].forEach.call(orgNodes, (org, i) => {
     org.addEventListener('click', () => {
       const org_name = orgNodes[i].id;
-      const org_image = document.querySelectorAll('div[name=org] img').id;
+      const org_image = document.querySelectorAll('div[name=org] img')[i].id;
       request.get(`/repos/${org_name}`)
         .then((res) => {
           if (res.status !== 200) {
