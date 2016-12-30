@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha ./test/runner.js",
+    "testmon": "nodemon -w test -w src -x 'npm test'",
     "cover": "istanbul cover _mocha -- ./test/runner.js",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "node_modules/.bin/semistandard --env browser mocha",
@@ -40,13 +41,14 @@
     "rollup-plugin-commonjs": "^6.0.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "semistandard": "^9.2.1",
-    "shot": "^3.4.0"
+    "supertest": "^2.0.1"
   },
   "dependencies": {
     "bulma": "^0.2.3",
     "env2": "^2.1.1",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
+    "ramda": "^0.23.0",
     "request": "^2.79.0"
   },
   "pre-commit": [

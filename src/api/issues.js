@@ -18,12 +18,22 @@ const issues = (req, res) => {
         payload: {}
       });
     }
+
     const payload = JSON.parse(body)
-    .map((issue) => ({
-      id: issue.id,
-      name: issue.name,
-      number: issues.number
-    }));
+      .map((issue) => ({
+        id: issue.id,
+        name: issue.title,
+        description: issue.body,
+        number: issue.number,
+        labels: issue.labels.map((label) => ({
+          name: label.name,
+          color: label.color
+        })),
+        assignees: issue.assignees.map((assignee) => ({
+          name: assignee.login,
+          image: assignee.avatar_url
+        }))
+      }));
 
     const data = {
       message: 'Retrieving issues for repo: ' + req.params.repo_name,
