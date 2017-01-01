@@ -2,7 +2,6 @@ node_modules
 !node_modules/app
 config.env
 build/*
-!build/iife_to_init.js
 !build/index.html
 !build/request.js
 npm-debug.log

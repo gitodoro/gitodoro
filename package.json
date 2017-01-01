@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:api": "node_modules/.bin/mocha ./test/api/runner.js",
-    "test:client": "npm run build && node build/iife_to_init.js && node_modules/.bin/karma start test/client/karma.conf.js",
+    "test:client": "export NODE_ENV=test && npm run build && node_modules/.bin/karma start test/client/karma.conf.js",
     "test": "npm run test:api && npm run test:client",
     "testmon": "nodemon -w test -w src -x 'npm test'",
     "cover": "istanbul cover _mocha -- ./test/api/runner.js",
@@ -49,6 +49,7 @@
     "pre-commit": "^1.2.2",
     "rollup": "^0.38.0",
     "rollup-plugin-commonjs": "^6.0.1",
+    "rollup-plugin-init": "^1.0.3",
     "rollup-plugin-node-resolve": "^2.0.0",
     "semistandard": "^9.2.1",
     "sinon": "^1.17.6",

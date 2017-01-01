@@ -2744,6 +2744,10 @@ rollup-plugin-commonjs@^6.0.1:
     resolve "^1.1.7"
     rollup-pluginutils "^1.5.1"
 
+rollup-plugin-init@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-init/-/rollup-plugin-init-1.0.3.tgz#ad489becfeffd5f8344f4e7da1b638cabcc2c7da"
+
 rollup-plugin-node-resolve@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-2.0.0.tgz#07e0ae94ac002a3ea36e8f33ca121d9f836b1309"
