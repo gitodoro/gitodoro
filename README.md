@@ -2,7 +2,7 @@
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md)
 [![Dependencies](https://david-dm.org/gitodoro/gitodoro.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro)
 [![Dev Dependencies](https://david-dm.org/gitodoro/gitodoro/dev-status.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro?type=dev)
-[![Travis](https://img.shields.io/travis/gitodoro/gitodoro.svg?style=flat-square)](https://travis-ci.org/dwyl/goodparts)
+[![Travis](https://img.shields.io/travis/gitodoro/gitodoro.svg?style=flat-square)](https://travis-ci.org/gitodoro/gitodoro)
 [![Coverage Status](https://img.shields.io/coveralls/gitodoro/gitodoro.svg?style=flat-square)](https://coveralls.io/github/gitodoro/gitodoro?branch=master)
 
 # gitodoro
