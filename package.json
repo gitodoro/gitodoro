@@ -37,8 +37,7 @@
     "nock": "^9.0.2",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^0.38.0",
-    "rollup-plugin-commonjs": "^6.0.1",
+    "rollup": "^0.39.2",
     "rollup-plugin-node-resolve": "^2.0.0",
     "semistandard": "^9.2.1",
     "supertest": "^2.0.1"
