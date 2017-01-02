@@ -3,7 +3,7 @@ const nock = require('nock');
 const { expect } = require('chai');
 const { repeat } = require('ramda');
 
-const app = require('../../src/api/app.js');
+const app = require('../../../src/api/app.js');
 const organisationsResponse = require('../fixtures/organisations.js');
 const reposResponse = require('../fixtures/repos.js');
 const issuesResponse = require('../fixtures/issues.js');
