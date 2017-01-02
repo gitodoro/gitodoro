@@ -24,9 +24,9 @@ describe('github-oauth', () => {
       it(test, (done) => {
         request(app)
           .get('/login')
-          .expect(302)
           .end((err, res) => {
             expect(decodeURIComponent(res.header.location)).to.include(loginLocations[i]);
+            expect(res.statusCode).to.equal(302);
             done();
           });
       });
@@ -42,9 +42,9 @@ describe('github-oauth', () => {
 
       request(app)
         .get('/welcome')
-        .expect(200)
         .end((err, res) => {
           expect(res.body.message).to.equal('Error: something awful happened');
+          expect(res.statusCode).to.equal(200);
           done();
         });
     });
@@ -58,10 +58,10 @@ describe('github-oauth', () => {
 
       request(app)
         .get('/welcome')
-        .expect(302)
         .end((err, res) => {
           expect(res.headers['set-cookie'][0]).to.include('HttpOnly');
           expect(res.headers['set-cookie'][0]).to.include('1234access_token');
+          expect(res.statusCode).to.equal(302);
           done();
         });
     });
