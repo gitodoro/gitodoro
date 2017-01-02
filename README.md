@@ -1,9 +1,11 @@
-[![Join the chat at https://gitter.im/gitodoro/gitodoro](https://img.shields.io/badge/chat-on_gitter-1dce73.svg?style=flat-square)](https://gitter.im/gitodoro/gitodoro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md)
 [![Dependencies](https://david-dm.org/gitodoro/gitodoro.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro)
 [![Dev Dependencies](https://david-dm.org/gitodoro/gitodoro/dev-status.svg?style=flat-square)](https://david-dm.org/gitodoro/gitodoro?type=dev)
 [![Travis](https://img.shields.io/travis/gitodoro/gitodoro.svg?style=flat-square)](https://travis-ci.org/gitodoro/gitodoro)
 [![Coverage Status](https://img.shields.io/coveralls/gitodoro/gitodoro.svg?style=flat-square)](https://coveralls.io/github/gitodoro/gitodoro?branch=master)
+
+[![Join the chat at https://gitter.im/gitodoro/gitodoro](https://img.shields.io/badge/chat-on_gitter-1dce73.svg?style=flat-square)](https://gitter.im/gitodoro/gitodoro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/gitodoro/gitodoro/blob/master/ROADMAP.md)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
 # gitodoro
 
