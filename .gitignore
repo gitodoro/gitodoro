@@ -3,6 +3,7 @@ node_modules
 config.env
 build/*
 !build/index.html
+!build/request.js
 npm-debug.log
 .sass-cache
 coverage

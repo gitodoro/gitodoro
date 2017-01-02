@@ -1,4 +1,3 @@
-import request from '../utils/request.js';
 import orgs from './orgs.js';
 import issues from './issues.js';
 import login from '../login.js';
