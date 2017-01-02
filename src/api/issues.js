@@ -2,8 +2,10 @@ const request = require('request');
 
 const issues = (req, res) => {
   const { token } = req;
+  const { orgName, repoName } = req.params;
+
   const options = {
-    url: 'https://api.github.com/repos/' + req.params.org_name + '/' + req.params.repo_name + '/issues',
+    url: 'https://api.github.com/repos/' + orgName + '/' + repoName + '/issues',
     headers: {
       accept: 'application/json',
       'user-agent': 'Gitodoro',
@@ -36,7 +38,7 @@ const issues = (req, res) => {
       }));
 
     const data = {
-      message: 'Retrieving issues for repo: ' + req.params.repo_name,
+      message: 'Retrieving issues for repo: ' + repoName,
       payload
     };
 

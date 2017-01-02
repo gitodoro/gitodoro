@@ -2,8 +2,10 @@ const request = require('request');
 
 const repos = (req, res) => {
   const { token } = req;
+  const { orgName } = req.params;
+
   const options = {
-    url: 'https://api.github.com/orgs/' + req.params.org_name + '/repos',
+    url: 'https://api.github.com/orgs/' + orgName + '/repos',
     headers: {
       accept: 'application/json',
       'user-agent': 'Gitodoro',
@@ -26,7 +28,7 @@ const repos = (req, res) => {
     }));
 
     const data = {
-      message: 'Retrieving repos for organisation: ' + req.params.org_name,
+      message: 'Retrieving repos for organisation: ' + orgName,
       payload
     };
 
