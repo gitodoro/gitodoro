@@ -1,7 +1,7 @@
 ## MVP Functionality
 - [x] Be able to login via Github oAuth 
-- [ ] Be able to select one of your organisations
-- [ ] Be able to select a repo from that organisation
+- [x] Be able to select one of your organisations
+- [x] Be able to select a repo from that organisation
 - [ ] Be able to select an issue from that repo
 - [ ] Be able to start the timer against that issue (adds in-progress label to selected issue)
 - [ ] Be able to stop the timer during a pomodoro (removes in-progress label from selected issue)
