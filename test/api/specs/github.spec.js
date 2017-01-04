@@ -141,10 +141,35 @@ describe('github endpoints', () => {
       request(app)
         .get('/start/' + testOrg + '/' + testRepo + '/' + testIssueNumber)
         .set('cookie', 'token=accesstoken1234')
-        .expect(200)
         .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
           expect(res.body).to.eql({
             message: 'Issue ' + testIssueNumber + ' started',
+            payload: {}
+          });
+          done();
+        });
+    });
+  });
+  context('"/stop/:org_name/:repo_name/:issue_number" endpoint: ', () => {
+    unauthorisedTest('/stop/' + testOrg + '/' + testRepo + '/' + testIssueNumber);
+    serviceUnavailableTest(
+      '/repos/' + testOrg + '/' + testRepo + '/issues/' + testIssueNumber + 'labels/in-progress',
+      '/stop/' + testOrg + '/' + testRepo + '/' + testIssueNumber
+    );
+
+    it('should respond with 200 and payload of: array of repos (objects)', (done) => {
+      nock('https://api.github.com')
+        .delete('/repos/' + testOrg + '/' + testRepo + '/issues/' + testIssueNumber + '/labels/in-progress')
+        .reply(200, issuesResponse);
+
+      request(app)
+        .get('/stop/' + testOrg + '/' + testRepo + '/' + testIssueNumber)
+        .set('cookie', 'token=accesstoken1234')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.eql({
+            message: 'Issue ' + testIssueNumber + ' stopped',
             payload: {}
           });
           done();
