@@ -17,7 +17,10 @@ const unauthorisedTest = (endpoint) => {
   it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     request(app)
       .get(endpoint)
-      .expect(401, done);
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        done();
+      });
   });
 };
 
