@@ -26,20 +26,13 @@ export default (issues) => {
   `;
 
   const issueNodes = document.querySelectorAll('div[name=issue]');
-  [].forEach.call(issueNodes, (issue, id) => {
+  [].forEach.call(issueNodes, (issue, i) => {
     issue.addEventListener('click', () => {
       const issueId = issueNodes[i].id;
-      request.get(`/repos/${issueId}`)
-        .then((res) => {
-          if (res.status !== 200) {
-            return login();
-          }
+      localStorage.setItem('issue', issueId);
+      localStorage.setItem('view', 'timer');
 
-          localStorage.setItem('issue', issueId);
-          localStorage.setItem('view', 'timer');
-
-          timer();
-        });
+      timer();
     });
   });
 
