@@ -8,14 +8,16 @@ describe('"/" endpoint: ', () => {
     request(app)
       .get('/')
       .expect('content-type', /text\/html/)
-      .expect(200)
       .end((err, res) => {
         [
           'Gitodoro',
           'DOCTYPE',
           '<div id="app"></div>',
           '<script src="/bundle.js"'
-        ].forEach((str) => expect(res.text).to.include(str));
+        ].forEach((str) => {
+          expect(res.text).to.include(str);
+          expect(res.statusCode).to.equal(200);
+        });
 
         done();
       });

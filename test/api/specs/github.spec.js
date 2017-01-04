@@ -47,9 +47,9 @@ describe('github endpoints', () => {
       request(app)
         .get('/orgs')
         .set('cookie', 'token=accesstoken1234')
-        .expect(200)
         .end((err, res) => {
-          expect(res.body).to.eql({
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.deep.equal({
             message: 'Retrieving organisations',
             payload: repeat({
               id: 1,
@@ -74,9 +74,9 @@ describe('github endpoints', () => {
       request(app)
         .get('/repos/' + testOrg)
         .set('cookie', 'token=accesstoken1234')
-        .expect(200)
         .end((err, res) => {
-          expect(res.body).to.eql({
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.deep.equal({
             message: 'Retrieving repos for organisation: testOrg',
             payload: [
               {
@@ -116,9 +116,9 @@ describe('github endpoints', () => {
       request(app)
         .get('/issues/' + testOrg + '/' + testRepo)
         .set('cookie', 'token=accesstoken1234')
-        .expect(200)
         .end((err, res) => {
-          expect(res.body).to.eql({
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.deep.equal({
             message: 'Retrieving issues for repo: testRepo',
             payload: issuesPayload
           });
