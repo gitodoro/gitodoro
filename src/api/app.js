@@ -20,6 +20,6 @@ app.get('/welcome', githubOauth.welcome);
 app.get('/orgs', [authCheck, orgs]);
 app.get('/repos/:orgName', [authCheck, repos]);
 app.get('/issues/:orgName/:repoName', [authCheck, issues]);
-app.get('/label/:orgName/:repoName/:issueNumber', [authCheck, labels]);
+app.get('/start/:orgName/:repoName/:issueNumber', [authCheck, labels]);
 
 module.exports = app;

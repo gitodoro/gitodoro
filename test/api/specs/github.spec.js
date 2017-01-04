@@ -11,12 +11,13 @@ const issuesPayload = require('../fixtures/issues_payload.js');
 
 const testOrg = 'testOrg';
 const testRepo = 'testRepo';
+const testIssueNumber = 10;
 
 const unauthorisedTest = (endpoint) => {
   it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     request(app)
       .get(endpoint)
-      .expect(401, done)
+      .expect(401, done);
   });
 };
 
@@ -120,6 +121,31 @@ describe('github endpoints', () => {
           expect(res.body).to.eql({
             message: 'Retrieving issues for repo: testRepo',
             payload: issuesPayload
+          });
+          done();
+        });
+    });
+  });
+  context('"/start/:org_name/:repo_name/:issue_number" endpoint: ', () => {
+    unauthorisedTest('/start/' + testOrg + '/' + testRepo + '/' + testIssueNumber);
+    serviceUnavailableTest(
+      '/repos/' + testOrg + '/' + testRepo + '/issues/' + testIssueNumber + 'labels',
+      '/start/' + testOrg + '/' + testRepo + '/' + testIssueNumber
+    );
+
+    it('should respond with 200 and payload of: array of repos (objects)', (done) => {
+      nock('https://api.github.com')
+        .post('/repos/' + testOrg + '/' + testRepo + '/issues/' + testIssueNumber + '/labels')
+        .reply(200, issuesResponse);
+
+      request(app)
+        .get('/start/' + testOrg + '/' + testRepo + '/' + testIssueNumber)
+        .set('cookie', 'token=accesstoken1234')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.eql({
+            message: 'Issue ' + testIssueNumber + ' started',
+            payload: {}
           });
           done();
         });
