@@ -1,13 +1,13 @@
 const express = require('express');
+const morgan = require('morgan');
 require('env2')('config.env');
 
-const githubOauth = require('./githubOauth.js');
-const orgs = require('./orgs.js');
-const repos = require('./repos.js');
-const issues = require('./issues.js');
-const labels = require('./labels.js');
-const authCheck = require('./auth-check.js');
-const morgan = require('morgan');
+const githubOauth = require('./github_login.js');
+const orgs = require('./get_orgs.js');
+const repos = require('./get_repos.js');
+const issues = require('./get_issues.js');
+const startIssue = require('./start_issue.js');
+const authCheck = require('./auth_check.js');
 
 const app = express();
 
@@ -20,6 +20,6 @@ app.get('/welcome', githubOauth.welcome);
 app.get('/orgs', [authCheck, orgs]);
 app.get('/repos/:orgName', [authCheck, repos]);
 app.get('/issues/:orgName/:repoName', [authCheck, issues]);
-app.get('/start/:orgName/:repoName/:issueNumber', [authCheck, labels]);
+app.get('/start/:orgName/:repoName/:issueNumber', [authCheck, startIssue]);
 
 module.exports = app;
