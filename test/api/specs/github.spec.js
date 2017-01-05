@@ -143,7 +143,7 @@ describe('github endpoints', () => {
         .set('cookie', 'token=accesstoken1234')
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body).to.eql({
+          expect(res.body).to.deep.equal({
             message: 'Issue ' + testIssueNumber + ' started',
             payload: {}
           });
@@ -168,7 +168,7 @@ describe('github endpoints', () => {
         .set('cookie', 'token=accesstoken1234')
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body).to.eql({
+          expect(res.body).to.deep.equal({
             message: 'Issue ' + testIssueNumber + ' stopped',
             payload: {}
           });
