@@ -17,7 +17,10 @@ const unauthorisedTest = (endpoint) => {
   it('should respond with a 401 Unauthorized when there is no cookie holding the access_token', (done) => {
     request(app)
       .get(endpoint)
-      .expect(401, done);
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        done();
+      });
   });
 };
 
@@ -30,7 +33,10 @@ const serviceUnavailableTest = (mockEndpoint, endpoint) => {
     request(app)
       .get(endpoint)
       .set('cookie', 'token=accesstoken1234')
-      .expect(503, done);
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(503);
+        done();
+      });
   });
 };
 
