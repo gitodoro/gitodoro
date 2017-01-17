@@ -33,7 +33,10 @@ const serviceUnavailableTest = (mockEndpoint, endpoint) => {
     request(app)
       .get(endpoint)
       .set('cookie', 'token=accesstoken1234')
-      .expect(503, done);
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(503);
+        done();
+      });
   });
 };
 
